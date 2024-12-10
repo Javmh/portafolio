@@ -1,0 +1,4 @@
+# Ignorar el entorno virtual (venv/portafolio)
+portafolio/
+*.pyc
+__pycache__
