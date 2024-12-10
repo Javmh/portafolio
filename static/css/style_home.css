@@ -1,0 +1,194 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start; /* Alineamos todo a la izquierda */
+  align-items: flex-start; /* Alineamos desde la parte superior */
+  height: 100vh; /* Utiliza toda la altura de la ventana */
+  position: relative;
+  overflow: hidden; /* Evita el scroll */
+  transition: background-color 0.5s ease;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Primer contenedor de fondo (triángulo invertido) */
+.triangle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  clip-path: polygon(70% 0, 100% 0, 100% 180%); /* Triángulo rectángulo pegado a la izquierda */
+  background-color: #f7b731; /* Color mostaza */
+  transform: rotate(180deg); /* Volteamos verticalmente */
+  z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+/* Segundo contenedor de fondo (color negro) */
+.black-background {
+  position: absolute;
+  top: 0;
+  left: 40%; /* Posicionamos para que cubra el área del texto */
+  width: 60%;
+  height: 100%;
+  background-color: transparent; /* Fondo negro opaco */
+  z-index: -1;
+}
+
+/* Contenedor para la imagen flotante */
+.image-section {
+  position: absolute;
+  top: 5%; /* Mantén la imagen a 5% del top */
+  left: 3%; /* Espacio de 5% desde la izquierda */
+  width: 450px; /* Ajusta el ancho de la imagen */
+  height: 680px; /* Ajusta la altura de la imagen */
+  background-color: transparent;
+  border-radius: 40px;
+  overflow: hidden;
+}
+/* Efecto al pasar el cursor sobre la imagen (Neomorfismo) con sombra más grande */
+.image-section:hover {
+  transform: scale(1.01);
+  box-shadow: -12px -12px 30px rgba(21, 19, 15, 0.4), -12px -12px 30px rgba(255, 180, 0, 0.6); /* Sombra neomórfica más grande */
+}
+
+/* Imagen dentro del contenedor */
+.image-section img {
+  width: 100%;
+  height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+  object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor sin perder la proporción */
+}
+
+/* Contenedor de texto */
+.content-section {
+  flex: 1;
+  padding: 90px;
+  position: relative;
+  max-width: 600px;
+  background-color: transparent;
+  color: #666666;
+  margin-left: 450px;
+  margin-top: 160px; /* Aquí se agrega el margen superior */
+  z-index: 2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Efecto de opacidad */
+.content-section:hover {
+  opacity: 0.9;
+}
+
+.button {
+  &.alternative {
+      --color-hover: #ffffff;
+      --background: #666666;
+      --hover-back: #e8a70e;
+      --hover-front: #ffb400;
+  }
+
+}
+
+.button {
+  --color: #fff;
+  --color-hover: var(--color);
+  --background: #943d15;
+  --background-hover: var(--background);
+  --hover-back: #ffb400;
+  --hover-front: #ffb400;
+  padding: 8px 28px;
+  border-radius: 20px;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+   -webkit-tap-highlight-color: transparent;
+   color: var(--c, var(--color));
+  background: var(--b, var(--background));
+  transition: color .2s linear var(--c-d, .2s), background .3s linear var(--b-d, .2s);
+  &:not(.simple) {
+      &:before,
+      &:after {
+          content: '';
+          position: absolute;
+          background: var(--pb, var(--hover-back));
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 200%;
+          border-radius: var(--br, 40%);
+          transform: translateY(var(--y, 50%));
+          transition: transform var(--d, .4s) ease-in var(--d-d, 0s), border-radius .5s ease var(--br-d, .08s);
+
+      }
+      &:after {
+          --pb: var(--hover-front);
+          --d: .44s;
+      }
+  }
+  div {
+      z-index: 1;
+      position: relative;
+      display: flex;
+      span {
+          display: block;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+          animation: var(--name, none) .7s linear forwards .18s;
+      }
+  }
+  &.in {
+      --name: move;
+      &:not(.out) {
+          --c: var(--color-hover);
+          --b: var(--background-hover);
+          &:before,
+          &:after {
+              --y: 0;
+              --br: 5%;
+          }
+          &:after {
+              --br: 10%;
+              --d-d: .02s;
+          }
+      }
+      &.out {
+          --name: move-out;
+          &:before {
+              --d-d: .06s;
+          }
+      }
+  }
+}
+
+@keyframes move {
+  30%,
+  36% {
+      transform: translateY(calc(-6px * var(--move))) translateZ(0) rotate(calc(-13deg * var(--rotate) * var(--part)));
+  }
+  50% {
+      transform: translateY(calc(3px * var(--move))) translateZ(0) rotate(calc(6deg * var(--rotate) * var(--part)));
+  }
+  70% {
+      transform: translateY(calc(-2px * var(--move))) translateZ(0) rotate(calc(-3deg * var(--rotate) * var(--part)));
+  }
+}
+
+
+
+

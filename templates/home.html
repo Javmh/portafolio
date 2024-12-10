@@ -1,0 +1,65 @@
+{% include 'menu/sidebar.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javier Meza - Diseñador Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Enlazar el archivo CSS 'style_home.css' -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal_info.css') }}">
+</head>
+<body>
+<!-- Contenedor principal -->
+<div class="main-container">
+  <!-- Contenedor para el triángulo de fondo -->
+  <div class="triangle-container"></div>
+
+  <!-- Contenedor para el fondo negro -->
+  <div class="black-background"></div>
+
+  <!-- Contenedor para la imagen flotante -->
+  <div class="image-section">
+    <img alt="Portrait of a man with a serious expression, wearing a dark sweater" height="600" src="./static/imagenes/photo.jpg" width="400"/>
+  </div>
+
+  <!-- Contenedor vacio -->
+  <div class="content-section-vacio">
+  </div>
+
+  <!-- Contenedor de texto -->
+  <div class="content-section">
+    <h1>LUIS JAVIER MEZA.</h1>
+    <h2>WEB DESIGNER</h2>
+    <p>
+      Soy un diseñador web y desarrollador front-end radicado en Huancayo, Perú, especializado en crear experiencias digitales limpias y fáciles de usar. Me apasiona desarrollar software excepcional que no solo cumpla con las expectativas, sino que también mejore la vida de quienes me rodean. Mi objetivo es construir soluciones innovadoras y eficientes que faciliten la interacción con la tecnología.
+    </p>
+    <button class="button alternative" id="myBtn">CONOCE MÁS</button>
+  </div>
+</div>
+
+<!-- El Modal (Popup) -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+   
+    <div id="modalContent">
+  
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/button.js') }}"></script>
+<script>
+  var sobreMiUrl = "{{ url_for('sobre_mi') }}"; // Asignar la URL generada a una variable JavaScript
+</script>
+<script src="{{ url_for('static', filename='js/modal_info.js') }}"></script>
+
+</body>
+</html>
+
+

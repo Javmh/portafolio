@@ -1,0 +1,324 @@
+  /* Estilos generales */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #1a1a1a; /* Fondo oscuro por defecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Usamos 100% en lugar de 100vh para asegurar que ocupe todo el alto de la ventana */
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% del alto de la ventana */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilos generales para los encabezados y párrafos */
+.content-section h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    color: #f7b731; /* Color mostaza por defecto */
+    font-weight: 700; /* Negrita, o más grueso */
+  }
+  
+  .content-section h2 {
+    font-size: 2em;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    color: #666666; /* Color mostaza por defecto */
+    font-weight: 700; /* Negrita, o más grueso */
+  }
+  
+  .content-section p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333; /* Texto oscuro en modo claro */
+  }
+  
+  /* Modo claro */
+  body:not(.dark-mode) {
+    background-color: #fff; /* Fondo blanco cuando no esté en modo oscuro */
+    color: #333;  /* Texto oscuro en modo claro */
+  }
+  
+  /* Modo oscuro */
+  body.dark-mode {
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: #f4f4f4;  /* Texto claro en modo oscuro */
+  }
+  
+  body.dark-mode .content-section h2,
+  body.dark-mode .content-section p {
+    color: #fff;  /* Asegura que los textos sean blancos en modo oscuro */
+  }
+  
+ /* Estilo para el botón de cambio de modo */
+.toggle-mode {
+    background: none;
+    border: none;
+    color: #f9c80e;  /* Amarillo mostaza */
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 50%; /* Hace el botón circular */
+    padding: 10px; /* Añadir algo de padding para hacerlo más grande */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Hover para el botón con sombra */
+  .toggle-mode:hover {
+    color: #bebebe;  /* Cambiar color a blanco cuando se pase el ratón */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(99, 99, 99, 0.6); /* Sombra neomórfica al pasar el mouse */
+  }
+  
+  /* Active: cuando el botón es presionado */
+  .toggle-mode:active {
+    box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.2), inset -4px -4px 6px rgba(255, 255, 255, 0.3); /* Sombra interna para simular el clic */
+  }
+  
+  /* Estilos generales para el sidebar */
+  .sidebar {
+    background-color: transparent;
+    width: 60px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Asegura que el botón de cambio de modo esté arriba */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  }
+
+  /* Contenedor de botones */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Aumento el espacio entre los botones */
+    margin-top: 120px; /* Aumenté el espacio superior de los botones */
+    padding-top: 20px; /* Añadir un poco de padding si es necesario */
+  }
+
+  /* Estilos comunes para todos los botones */
+  .btn {
+    display: flex;
+    align-items: center;
+    background-color: #ffb400;
+    border-radius: 30px;
+    padding: 14px 25px;
+    position: relative;
+    overflow: hidden;
+    transition: width 0.3s ease, transform 0.3s ease; /* Animación de desplazamiento */
+    width: 0; /* Tamaño base del botón */
+    cursor: pointer;
+    justify-content: flex-start; /* Alinea el texto a la izquierda */
+  }
+
+  /* Efecto hover para expansión en todos los botones */
+  .btn:hover {
+    width: 150px;
+    padding: 10px 25px;
+    transform: translateX(-30px); /* Mueve el botón a la izquierda */
+  }
+
+  /* Estilos para el texto dentro de los botones */
+  .btn span {
+    color: white;
+    font-size: 18px;
+    margin-left: 30px; /* Ajusta la distancia entre el ícono y el texto */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Mostrar el texto cuando el botón está en hover */
+  .btn:hover span {
+    opacity: 1;
+  }
+/* Modifica el tamaño del ícono dentro de los botones */
+.btn i {
+  font-size: 24px;  /* Aumenta el tamaño del ícono */
+  color: #fff;  /* Asegúrate de que el color sea visible */
+  margin-left: -10px;  /* Ajusta este valor para mover el ícono hacia la izquierda */
+}
+
+  /* Modifica el tamaño del ícono dentro de los botones */
+  .btn i {
+    font-size: 24px;  /* Aumenta el tamaño del ícono */
+    color: #fff;  /* Asegúrate de que el color sea visible */
+  }
+
+  /* Modo claro */
+  body:not(.dark-mode) {
+    background-color: #fff; /* Fondo blanco cuando no esté en modo oscuro */
+    color: #333;  /* Texto oscuro en modo claro */
+  }
+
+  /* Modo oscuro */
+  body.dark-mode {
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: #f4f4f4;  /* Texto claro en modo oscuro */
+  }
+
+  body.dark-mode .content-section h2,
+  body.dark-mode .content-section p {
+    color: #fff;  /* Asegura que los textos sean blancos en modo oscuro */
+  }
+
+  /* Estilo de los enlaces dentro del sidebar */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 40px; /* Espacio entre los íconos y el botón de modo */
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  nav ul li a {
+    color: #f9c80e;
+    font-size: 1.8em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #fff;
+  }
+
+  /* Alineación central de los iconos (excepto el del modo) */
+  nav ul li a {
+    display: block;
+    text-align: center;
+  }
+
+  /* Sidebar móvil: */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      font-size: 2em;
+    }
+
+    .toggle-mode {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 2em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .toggle-mode {
+      font-size: 2.5em; /* Icono más grande en pantallas muy pequeñas */
+    }
+  }
+
+  
+
+
+
+
+  /* Estilo de los enlaces dentro del sidebar */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 40px; /* Espacio entre los íconos y el botón de modo */
+  }
+  
+  nav ul li {
+    margin: 15px 0;
+  }
+  
+  nav ul li a {
+    color: #f9c80e;
+    font-size: 1.8em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #fff;
+  }
+  
+  /* Alineación central de los iconos (excepto el del modo) */
+  nav ul li a {
+    display: block;
+    text-align: center;
+  }
+  
+  /* Sidebar móvil: */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 10px 0;
+    }
+  
+    nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      padding: 0;
+    }
+  
+    nav ul li {
+      margin: 0;
+    }
+  
+    nav ul li a {
+      font-size: 2em;
+    }
+  
+    .toggle-mode {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 2em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .toggle-mode {
+      font-size: 2.5em; /* Icono más grande en pantallas muy pequeñas */
+    }
+  }
+  
+  /* Eliminar subrayado en los enlaces dentro de los botones */
+a {
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Opcional: puedes agregar estilos para el hover del enlace si deseas cambiar el color o algo más */
+a:hover {
+  text-decoration: none; /* También se elimina el subrayado al pasar el ratón */
+}

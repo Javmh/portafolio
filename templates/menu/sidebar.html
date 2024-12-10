@@ -1,0 +1,46 @@
+<!-- Sidebar con menú y botón de cambio de modo -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+<div class="sidebar">
+    <!-- Botón para cambiar el modo (en la parte superior) -->
+    <button id="toggle-mode" class="toggle-mode">
+      <i class="fa fa-moon-o" aria-hidden="true"></i> <!-- Ícono de la luna -->
+    </button>
+
+    <nav>
+      <ul>
+        <div class="container">
+       
+           <!-- Botón Inicio -->
+        <a href="{{ url_for('loading') }}" class="btn">
+          <i class="fas fa-home"></i> <!-- Ícono de la casa (inicio) -->
+          <span>Inicio</span> <!-- Texto -->
+        </a>
+
+                   <!-- Botón Inicio -->
+           <a href="{{ url_for('sobre_mi') }}" class="btn">
+            <i class="fas fa-user"></i> 
+            <span>Información</span> 
+          </a>
+         
+          <a href="{{ url_for('trabajos_demo') }}" class="btn">
+            <i class="fas fa-briefcase"></i> 
+            <span>Portafolio</span> 
+          </a>
+
+                   <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=javier.ocyt@gmail.com" class="btn"target="_blank">
+              <i class="fas fa-envelope"></i> 
+              <span>Contactos</span> 
+            </a>
+
+          </div>
+        </div>
+      </ul>
+    </nav>
+  </div>
+
+
+<!-- Incluir el archivo script.js -->
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>

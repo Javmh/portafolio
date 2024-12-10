@@ -1,0 +1,255 @@
+body {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    background-color: #4d4d4d;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100%; /* Altura mínima igual a la altura de la pantalla */
+
+}
+
+.header {
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+/* Estilo para el encabezado h1 en el modo claro */
+.header h1 {
+    font-size: 4em;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Modo claro: color gris */
+body:not(.dark-mode) .header h1 {
+    color: #636363;  /* Gris en modo claro */
+}
+
+/* Modo oscuro: color blanco */
+body.dark-mode .header h1 {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+.header h1 span {
+    color: #f7b731;
+}
+
+.header::after {
+    content: 'RESUMEN';
+    font-family: 'Poppins', sans-serif;  /* Aplica la fuente Poppins */
+    font-weight: bold;  /* Aplica el estilo en negrita */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6em;
+    z-index: -1; /* Asegura que el texto esté detrás del contenido */
+}
+
+/* Modo claro: */
+body:not(.dark-mode) .header::after {
+    color: rgba(169, 169, 169, 0.164); /* Gris muy tenue en el modo claro */
+}
+
+/* Modo oscuro: */
+body.dark-mode .header::after {
+    color: rgba(255, 255, 255, 0.1); /* Gris claro en el modo oscuro */
+}
+
+.personal-info, .skills, .experience {
+    margin-bottom: 50px;
+}
+
+.personal-info h2, .skills h2, .experience h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la información personal en modo claro */
+body:not(.dark-mode) .personal-info .info div span {
+
+    color: #636363;  /* Gris claro en modo claro */
+}
+
+/* Estilo para la información personal en modo oscuro */
+body.dark-mode .personal-info .info div span {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+/* Estilo para los encabezados dentro de .personal-info en modo claro */
+body:not(.dark-mode) .personal-info h2,
+body:not(.dark-mode) .skills h2,
+body:not(.dark-mode) .experience h2 {
+    color: #5e5e5e;  /* Gris claro en modo claro */
+}
+
+/* Estilo para los encabezados dentro de .personal-info en modo oscuro */
+body.dark-mode .personal-info h2,
+body.dark-mode .skills h2,
+body.dark-mode .experience h2 {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+/* Contenedor para la estructura de las 4 columnas (información personal y stats) */
+.container-columns {
+    display: flex;
+    gap: 15px; /* Espacio entre las columnas */
+    flex-wrap: wrap;
+}
+
+/* Contenedor 2: Información Personal con 2 columnas dentro */
+.personal-info {
+    flex: 1 1 60%; /* 48% para que haya espacio entre las columnas */
+}
+
+.personal-info .info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.personal-info .info div {
+    flex: 1 1 48%; /* Cada item ocupa el 48% del espacio */
+    margin-bottom: 10px;
+}
+
+.personal-info .info div span {
+    display: block;
+    font-weight: 700;
+}
+
+.personal-info .info div span.value {
+    font-weight: 400;
+}
+
+/* Contenedor 3: Estadísticas con 2 columnas más compactas */
+.stats {
+    flex: 1 1 35%; /* 35% de ancho, ajustado para que encaje mejor */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Cada columna dentro de stats tiene un tamaño más grande y estilizado */
+.stats .column {
+    flex: 1 1 20%; /* Ajustar al 45% del espacio */
+    text-align: center;
+    padding: 20px;  /* Mayor padding para un mejor espaciado */
+    border: 2px solid #9090902b;  /* Agregar un borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en las columnas */
+.stats .column:hover {
+    transform: translateY(-10px); /* Sube el cuadro al hacer hover */
+    box-shadow: 0 4px 20px rgba(255, 183, 49, 0.4); /* Sombra de resplandor */
+}
+
+/* Ajustar la tipografía de los números (hacerlos más grandes) */
+.stats .column span {
+    display: block;
+    font-size: 3em; /* Hacer los números más grandes */
+    font-weight: 600;
+    color: #f7b731;
+    text-shadow: 2px 2px 15px rgba(255, 250, 154, 0.5); /* Sombra suave en el texto */
+}
+
+/* Estilo para las etiquetas */
+.stats .column span.label {
+    font-size: 1.1em;
+    color: rgb(127, 127, 127);
+}
+body.dark-mode .stats .column span.label {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+
+@media (max-width: 768px) {
+    /* En pantallas pequeñas, apilamos los contenedores y las columnas */
+    .container-columns {
+        flex-direction: column; /* Apilar los contenedores */
+    }
+
+    .personal-info, .stats {
+        flex: 1 1 100%; /* Apilar los contenedores */
+    }
+
+    .personal-info .info div,
+    .stats .column {
+        flex: 1 1 100%; /* Apilar las columnas dentro de cada contenedor */
+    }
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill {
+    width: 200px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+/* Color de texto para .skills en modo claro */
+body:not(.dark-mode) .skills {
+    color: #636363;  /* Gris claro en modo claro */
+}
+
+/* Color de texto para .skills en modo oscuro */
+body.dark-mode .skills {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #8c8c8c;
+    border-radius: 25px;
+    height: 20px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #f7b731;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 2s ease-out;
+}
+
+.percentage {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .skill {
+        width: 150px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}

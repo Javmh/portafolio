@@ -1,0 +1,254 @@
+/* Resetear estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    margin: 0;
+    font-family: 'popins', sans-serif;
+    background-color: #4d4d4d;
+    color: #fff;
+}
+
+/* Modo claro */
+body.lightmode {
+    background-color: #fff;
+    color: #333;  /* Gris para texto en modo claro */
+}
+
+/* Modo oscuro */
+body.darkmode {
+    background-color: #2c2c2c;
+    color: #fff;  /* Blanco para texto en modo oscuro */
+}
+
+/* Contenedor principal */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100%; /* Altura mínima igual a la altura de la pantalla */
+}
+
+.header {
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+/* Estilo para el encabezado h1 en el modo claro */
+.header h1 {
+    font-size: 4em;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Modo claro: color gris */
+body:not(.dark-mode) .header h1 {
+    color: #636363;  /* Gris en modo claro */
+}
+
+/* Modo oscuro: color blanco */
+body.dark-mode .header h1 {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+.header h1 span {
+    color: #f7b731;
+}
+
+.header::after {
+    content: 'works';
+    font-family: Poppins, sans-serif;  /* Aplica la fuente Poppins */
+    font-weight: bold;  /* Aplica el estilo en negrita */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10em;
+    z-index: -1; /* Asegura que el texto esté detrás del contenido */
+}
+
+/* Modo claro: */
+body:not(.dark-mode) .header::after {
+    color: rgba(169, 169, 169, 0.164); /* Gris muy tenue en el modo claro */
+}
+
+/* Modo oscuro: */
+body.dark-mode .header::after {
+    color: rgba(255, 255, 255, 0.1); /* Gris claro en el modo oscuro */
+}
+
+
+/* Barra de navegación */
+nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit; /* Usar el color del texto según el modo */
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Contenido del portafolio */
+.portfolio-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+/* Sección de video */
+.section {
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 10px; /* Agregamos padding para no dejar el contenido pegado al borde */
+}
+
+/* Sección de video */
+.video-section iframe {
+    width: 100%;
+    height: 360px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Sección de PDF */
+.pdf-container iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Sección de Logo */
+.logo-section iframe {
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Sección de diseño gráfico */
+.graphic-design-section img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+/* Sección de mockups */
+.mockup-section img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h1 span {
+        font-size: 28px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+    /* Estilo para el enlace activo en el navbar */
+nav ul li a.active {
+    color: #fff;  /* Color blanco para el texto */
+    background-color: #f1c40f; /* Amarillo para el fondo */
+    padding: 10px 15px; /* Agregar algo de espacio alrededor */
+    border-radius: 5px; /* Bordes redondeados */
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+    .portfolio-content {
+        flex-direction: column; /* Apilar las secciones en pantallas pequeñas */
+        align-items: center; /* Alinear al centro */
+        padding-top: 20px;
+    }
+
+    .video-section iframe, .pdf-container iframe, .logo-section iframe {
+        max-width: 100%; /* Aseguramos que el iframe ocupe el 100% del ancho de la pantalla */
+    }
+
+    .section {
+        margin-bottom: 20px; /* Espaciado más pequeño en pantallas pequeñas */
+    }
+}
+/* Estilo para el h2 */
+h2 {
+    font-weight: 500; /* Ajuste de grosor de la fuente (más delgada) */
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-style: italic; /* Aplica cursiva al texto */
+    text-decoration: underline; /* Aplica subrayado al texto */
+}
+
+/* Modo claro: color gris */
+body:not(.dark-mode) h2 {
+    color: #f1c40f;  /* Gris en modo claro */
+}
+
+/* Modo oscuro: color blanco */
+body.dark-mode h2 {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+/* Modo claro: color gris para enlaces */
+body:not(.dark-mode) a {
+    color: #494949;  /* Gris en modo claro */
+}
+
+/* Modo oscuro: color blanco para enlaces */
+body.dark-mode a {
+    color: #ffffff;  /* Blanco en modo oscuro */
+}
+
+/* Enlaces al pasar el ratón (hover) */
+body:not(.dark-mode) a:hover {
+    color: #f39c12;  /* Color al pasar el ratón en modo claro */
+}
+
+body.dark-mode a:hover {
+    color: #f39c12;  /* Color al pasar el ratón en modo oscuro */
+}
+/* Estilo para los enlaces del menú */
+nav a {
+    color: white; /* color por defecto */
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* Estilo para el enlace activo (amarillo mostaza) */
+  nav a.active {
+    color: #f4d03f; /* Color amarillo mostaza */
+  }

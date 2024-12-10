@@ -1,0 +1,59 @@
+{% include 'menu/sidebar.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio - Javier Meza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/trabajos_demo.css') }}">
+
+</head>
+<body>
+
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <header>
+      <div class="header">
+        <h1>MI <span>PORTFOLIO</span></h1>
+      </div>
+      <!-- Barra de navegación -->
+      <nav>
+        <ul>
+          <li><a href="javascript:void(0)" data-filter="all" class="active" onclick="showSection('all')">ALL</a></li>
+          <li><a href="javascript:void(0)" data-filter="video" onclick="showSection('video')">PROYECTOS</a></li>
+          <li><a href="javascript:void(0)" data-filter="pdf" onclick="showSection('pdf')">PUBLICIDAD</a></li>
+          <!-- <li><a href="javascript:void(0)" data-filter="logo" onclick="showSection('logo')">LOGO</a></li> -->
+          <li><a href="javascript:void(0)" data-filter="graphic_design" onclick="showSection('graphic_design')">ANALISIS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Sección de contenido -->
+    <div class="portfolio-content">
+      <!-- Sección de video -->
+      <div class="section" id="video">
+        <h2>Proyecto para registrar ususario y personal</h2>
+        <div class="video-container">
+          <iframe src="https://drive.google.com/file/d/1pxQhfYZIBekPWque3fvRrMjMa5s74beC/preview" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Sección de PDF (Publicidad) -->
+      <div class="section" id="pdf">
+        <h2>Trabajos de diseño profesional</h2>
+        <div class="pdf-container">
+          <iframe src="https://drive.google.com/file/d/1GkE3JJz17PzDUDC5nhgJedjEK-8OeRzv/preview" width="100%" height="600" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <!-- <div class="section" id="logo">
+        <h2>Diseño Gráfico</h2>
+        <iframe src="https://drive.google.com/file/d/1USONunwCi4-F30LkSG44oiXdqybLvqqN/preview" width="640" height="480" frameborder="0" allowfullscreen></iframe>
+      </div> -->
+      
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/trabajos_demo.js') }}"></script>
+</body>
+</html>
