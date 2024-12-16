@@ -49,3 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
       showSection('all'); // Show all sections by default
     });
  
+    // codigo anterior
+
+    

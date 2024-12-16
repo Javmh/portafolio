@@ -252,3 +252,9 @@ nav a {
   nav a.active {
     color: #f4d03f; /* Color amarillo mostaza */
   }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
